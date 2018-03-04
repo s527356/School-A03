@@ -1,0 +1,39 @@
+* {
+    max-width: 600px;
+    margin: auto;
+    color: dimgray;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    color: lightgray;
+    text-align: center;
+}
+
+h1 {
+    color: dimgray;
+}
+
+h2 {
+    color: dimgray;
+}
+
+.btn {
+    background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+    border: 0px;
+}
+
+.btn:hover {
+    transition: .1s;
+    transform: translate3d(0px, -3px, 0px);
+    box-shadow: 0px 3px 10px 0px rgba(150,150,150,.5);
+}
+
+.btn:active {
+    background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+    transition: .1s;
+    transform: translate3d(0px, 0px, 0px);
+    box-shadow: none;
+}
