@@ -6,13 +6,6 @@ var bodyParser = require("body-parser") // simplifies access to request body
 var app = express()  // make express app
 var http = require('http').Server(app)  // inject app into the server
 app.use("/style",express.static(__dirname + "/style"));
-// ADD THESE COMMENTS AND IMPLEMENTATION HERE 
-// 1 set up the view engine
-// 2 manage our entries
-// 3 set up the logger
-// 4 handle valid GET requests
-// 5 handle valid POST request
-// 6 respond with 404 if a bad URI is requested
 
 // Listen for an application request on port 8081
 http.listen(8081, function () {
@@ -31,7 +24,7 @@ app.use(logger("dev"))     // app.use() establishes middleware functions
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // 4 handle http GET requests (default & /new-entry)
-app.get("/", function (request, response) {
+app.get("/guestbook", function (request, response) {
   response.render("index")
 })
 app.get("/new-entry", function (request, response) {
@@ -49,7 +42,7 @@ app.post("/new-entry", function (request, response) {
     content: request.body.body,
     published: new Date()
   })
-  response.redirect("/")  // where to go next? Let's go to the home page :)
+  response.redirect("/guestbook")  // where to go next? Let's go to the home page :)
 })
 
 // if we get a 404 status, render our 404.ejs view
@@ -57,8 +50,14 @@ app.use(function (request, response) {
   response.status(404).render("404")
 })
 
-// Listen for an application request on port 8081 & notify the developer
+//Listen for an application request on port 8081 & notify the developer
 //http.listen(8081, function () {
- // console.log('Guestbook app listening on http://127.0.0.1:8081/')
+//  console.log('Guestbook app listening on http://127.0.0.1:8081/')
 //})
+
+/*
+app.get('/index', function(req, res) {
+    res.sendFile(path.join(__dirname + '/assets/index.html'));
+});
+*/
 
